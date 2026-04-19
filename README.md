@@ -10,6 +10,10 @@ Reads CO2 ppm from a UART sensor and broadcasts it over BLE using the BTHome v2 
 - UART sensor output: one line per second like `400 ppm\r\n`
 - UART wiring: UART1 RX=GPIO4, TX=GPIO5, 9600 8N1 (sensor TX → ESP RX4, sensor RX → ESP TX5)
 
+Wiring reference:
+
+![Pin Connection](docs/images/pin-connect.png)
+
 ## Firmware Features
 
 - Parses integer at line start; clamps to 0–5000 ppm; updates every second
@@ -30,12 +34,18 @@ Exit monitor: Ctrl-].
 
 - Requires HA Bluetooth integration or a Bluetooth Proxy
 - Device is auto‑discovered as a BTHome device exposing CO2 (ppm)
-- 若需要刷新名称：在 HA 设备页移除旧设备，等待重新发现
+Example in Home Assistant UI:
+
+![HA CO2 Sensor](docs/images/HA-Co2-sensor.png)
 
 ## Configuration
 
 - UART pins/baud: edit `CO2_UART_RX_PIN`, `CO2_UART_TX_PIN`, `CO2_UART_BAUDRATE` in `main/main.c`
 - Device name: edit `DEVICE_NAME` in `main/include/common.h`
+
+## Documents
+
+- Sensor manual (PDF): [JX_CO2_102 小型二氧化碳传感器使用说明书.pdf](docs/JX_CO2_102%20小型二氧化碳传感器使用说明书.pdf)
 
 ## BLE Payload Details
 
