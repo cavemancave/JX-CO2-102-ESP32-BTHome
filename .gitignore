@@ -97,6 +97,9 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
+# Claude CLI
+.claude/
+
 # User-specific configuration files
 *.user
 *.workspace # General workspace files, can be from various tools
